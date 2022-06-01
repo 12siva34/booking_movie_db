@@ -1,8 +1,9 @@
 <?php
 session_start();
 require "db/dbcon.php";
-$username = filter_input(INPUT_POST, 'username');
-$password = filter_input(INPUT_POST, 'password');
+$username = htmlentities(stripcslashes(htmlspecialchars(trim(filter_input(INPUT_POST, 'username')))));
+$password = htmlentities(stripcslashes(htmlspecialchars(trim(filter_input(INPUT_POST, 'password')))));
+
  
 $query = mysqli_query($conn, "SELECT * FROM user WHERE username = '$username'");
 if(mysqli_num_rows($query) > 0){
