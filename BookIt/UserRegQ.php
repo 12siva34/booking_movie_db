@@ -1,10 +1,10 @@
 <?php
 include "db/dbcon.php";
-$username = filter_input(INPUT_POST, 'username');
-$password = filter_input(INPUT_POST, 'password');
-$fullname = filter_input(INPUT_POST, 'fullname');
-$email = filter_input(INPUT_POST, 'email');
-$phone = filter_input(INPUT_POST, 'phone');
+$username = htmlentities(stripcslashes(htmlspecialchars(trim(filter_input(INPUT_POST, 'username')))));
+$password = htmlentities(stripcslashes(htmlspecialchars(trim(filter_input(INPUT_POST, 'password')))));
+$fullname = htmlentities(stripcslashes(htmlspecialchars(trim(filter_input(INPUT_POST, 'fullname')))));
+$email = htmlentities(stripcslashes(htmlspecialchars(trim(filter_input(INPUT_POST, 'email')))));
+$phone = htmlentities(stripcslashes(htmlspecialchars(trim(filter_input(INPUT_POST, 'phone')))));
 
 
 if (!empty($username)){
